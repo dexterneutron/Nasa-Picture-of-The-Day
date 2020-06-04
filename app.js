@@ -1,6 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = '1155432170:AAFAaftEA02cSZpQC29XsEyWtMXsHUN_qZ8';
-const bot = new TelegramBot(token, {polling:true});
+const port = process.env.PORT || 443;
+const bot = new TelegramBot(token,{ webHook: { port : port} }, {polling:true});
 const https = require('https');
 bot.on('polling_error', function(error){
     console.log(error);
@@ -30,6 +31,4 @@ https.get('https://api.nasa.gov/planetary/apod?api_key=HRSo5U4ukaIGB6lr31JYhIMvg
   var userId = msg.from.id;
   var url = msg.text.substring(8).trim();
 });
-
-
 
