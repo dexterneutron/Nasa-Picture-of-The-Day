@@ -1,6 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = '1155432170:AAFAaftEA02cSZpQC29XsEyWtMXsHUN_qZ8';
-const port = process.env.PORT || 443;
+const port = process.env.PORT;
 const bot = new TelegramBot(token,{ webHook: { port : port} }, {polling:true});
 const https = require('https');
 bot.on('polling_error', function(error){
